@@ -1,0 +1,13 @@
+{
+    "timestamp": "2025-10-16T00:00:00",
+    "metrics": {
+        "query_latency_ms": 114.18,
+        "collection_size": 5454,
+        "memory_usage_mb": 130.73
+    },
+    "hnsw_parameter_config": {
+        "M": 16,
+        "efConstruction": 200
+    },
+    "notes": "Adjusting M and efConstruction parameters for better recall."
+}

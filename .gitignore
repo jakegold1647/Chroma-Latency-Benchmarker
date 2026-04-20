@@ -1,3 +1,6 @@
+# Local only — never commit
+INTERVIEW_PREP.md
+
 __pycache__/
 *.py[cod]
 *.egg-info/

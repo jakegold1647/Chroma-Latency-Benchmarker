@@ -1,0 +1,13 @@
+{
+    "timestamp": "2026-03-15T00:00:00",
+    "metrics": {
+        "query_latency_ms": 47.0,
+        "collection_size": 50000,
+        "memory_usage_mb": 153.0
+    },
+    "hnsw_parameter_config": {
+        "M": 64,
+        "efConstruction": 600
+    },
+    "notes": "Production-ready configuration reached."
+}

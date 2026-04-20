@@ -1,0 +1,13 @@
+{
+    "timestamp": "2025-10-31T00:00:00",
+    "metrics": {
+        "query_latency_ms": 108.36,
+        "collection_size": 9909,
+        "memory_usage_mb": 132.95
+    },
+    "hnsw_parameter_config": {
+        "M": 24,
+        "efConstruction": 300
+    },
+    "notes": "Increased ef_search to stabilize tail latency."
+}

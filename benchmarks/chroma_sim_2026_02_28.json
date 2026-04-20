@@ -1,0 +1,13 @@
+{
+    "timestamp": "2026-02-28T00:00:00",
+    "metrics": {
+        "query_latency_ms": 52.82,
+        "collection_size": 45545,
+        "memory_usage_mb": 150.77
+    },
+    "hnsw_parameter_config": {
+        "M": 64,
+        "efConstruction": 600
+    },
+    "notes": "Final optimization pass on HNSW parameters."
+}

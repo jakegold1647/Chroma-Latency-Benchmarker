@@ -1,0 +1,13 @@
+{
+    "timestamp": "2026-01-14T00:00:00",
+    "metrics": {
+        "query_latency_ms": 73.27,
+        "collection_size": 32181,
+        "memory_usage_mb": 144.09
+    },
+    "hnsw_parameter_config": {
+        "M": 48,
+        "efConstruction": 500
+    },
+    "notes": "Memory-to-disk paging verified for larger scale."
+}

@@ -1,0 +1,13 @@
+{
+    "timestamp": "2025-12-30T00:00:00",
+    "metrics": {
+        "query_latency_ms": 79.09,
+        "collection_size": 27727,
+        "memory_usage_mb": 141.86
+    },
+    "hnsw_parameter_config": {
+        "M": 32,
+        "efConstruction": 400
+    },
+    "notes": "Switching to optimized distance metrics."
+}

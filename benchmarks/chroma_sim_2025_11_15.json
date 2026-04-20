@@ -1,0 +1,13 @@
+{
+    "timestamp": "2025-11-15T00:00:00",
+    "metrics": {
+        "query_latency_ms": 99.55,
+        "collection_size": 14363,
+        "memory_usage_mb": 135.18
+    },
+    "hnsw_parameter_config": {
+        "M": 24,
+        "efConstruction": 300
+    },
+    "notes": "Index flattened for high-density deployment."
+}
