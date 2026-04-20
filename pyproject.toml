@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "chroma-latency-benchmarker"
+version = "1.0.0"
+description = "Retrieval latency and ingestion stress benchmarks for ChromaDB"
+requires-python = ">=3.9"
+dependencies = [
+    "chromadb>=0.4.0",
+    "numpy>=1.24.0",
+]
+
+[project.scripts]
+chroma-bench = "scripts.run_all:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["benchmarks*", "scripts*"]
