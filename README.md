@@ -16,8 +16,33 @@ This repository contains the consolidated research and performance benchmarks co
 - `/src`: Core orchestration logic for ChromaDB query simulations.
 - `/tests`: Validation suite for benchmarking utilities.
 
+## Install
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+Requires Python 3.9+. The `dev` extra adds `pytest`; the runtime dependencies
+are `chromadb` and `numpy`.
+
 ## Usage
 To run the orchestrator simulation:
 ```bash
 python src/orchestrator.py
 ```
+
+Or use the installed console script, which runs the full benchmark suite:
+
+```bash
+chroma-bench --help
+chroma-bench --quick
+```
+
+## Tests
+
+```bash
+python -m pytest
+```
+
+110 tests, no network access and no running ChromaDB server required — the
+suite exercises the benchmark logic rather than driving a live database.
