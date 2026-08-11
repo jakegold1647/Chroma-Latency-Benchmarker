@@ -1,20 +1,29 @@
-# 🛠 Project: Chroma-Latency-Benchmarker
-**Status: Public Release (April 2026)**
+# Chroma Latency Benchmarker
 
-This repository contains the consolidated research and performance benchmarks conducted between October 2025 and April 2026 in an independent homelab environment.
+A small benchmarking harness for ChromaDB: query latency, batch-ingestion
+throughput, and memory scaling, plus a generator that produces a synthetic
+dataset so the analysis tooling has something to run against.
 
-## Data Migration Note:
-> The logs in `/benchmarks` represent a sanitized export from a private local database. Raw iteration logs were truncated and refactored into JSON format for public distribution to remove local environment variables and hardware-specific pathing.
+**The sample data in `benchmarks/` is synthetic.** It is produced by
+`scripts/generate_historical_data.py`, which interpolates a latency curve
+between two fixed endpoints. The files are named `chroma_sim_*.json` for that
+reason. They illustrate the shape of an HNSW tuning curve — they are not
+measurements, and no conclusion should be drawn from them about real ChromaDB
+performance on real hardware.
 
-## Key Findings:
-- **Observed a 62% reduction in query latency** through HNSW parameter tuning.
-- **Optimized efConstruction settings** to balance index speed vs. retrieval accuracy for large-scale property datasets.
+If you want real numbers, point the harness at your own instance and generate
+them. That is what it is for.
 
-## Repository Structure:
-- `/scripts`: Utility scripts for data processing and historical generation.
-- `/benchmarks`: Sanitized JSON performance logs (Oct 2025 - April 2026).
-- `/src`: Core orchestration logic for ChromaDB query simulations.
-- `/tests`: Validation suite for benchmarking utilities.
+## What's here
+
+- `benchmarks/latency_benchmark.py` — query latency measurement
+- `benchmarks/stress_test.py` — batch ingestion and memory scaling
+- `benchmarks/utils.py` — shared helpers
+- `scripts/generate_historical_data.py` — writes the synthetic dataset
+- `scripts/analyze_results.py` — summarises a result set
+- `scripts/run_all.py` — runs the suite end to end
+- `src/orchestrator.py` — ties the pieces together
+- `tests/` — 110 tests covering the benchmark logic
 
 ## Install
 
@@ -22,18 +31,13 @@ This repository contains the consolidated research and performance benchmarks co
 python -m pip install -e ".[dev]"
 ```
 
-Requires Python 3.9+. The `dev` extra adds `pytest`; the runtime dependencies
-are `chromadb` and `numpy`.
+Python 3.9+. Runtime dependencies are `chromadb` and `numpy`; the `dev` extra
+adds `pytest`.
 
 ## Usage
-To run the orchestrator simulation:
-```bash
-python src/orchestrator.py
-```
-
-Or use the installed console script, which runs the full benchmark suite:
 
 ```bash
+python src/orchestrator.py     # run the orchestrator
 chroma-bench --help
 chroma-bench --quick
 ```
@@ -44,5 +48,15 @@ chroma-bench --quick
 python -m pytest
 ```
 
-110 tests, no network access and no running ChromaDB server required — the
+110 tests. No network access and no running ChromaDB server required — the
 suite exercises the benchmark logic rather than driving a live database.
+
+## Status
+
+A learning project. The harness and its tests are real; the bundled dataset is
+not. Treat it as a starting point for benchmarking your own instance rather
+than as a source of published results.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
